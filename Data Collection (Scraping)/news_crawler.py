@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 import requests
 from bs4 import BeautifulSoup
@@ -9,8 +10,8 @@ with open('./news_result.csv', 'w', encoding='utf-8') as csvfile:
     csvwriter.writerow(['news_title', 'news_link'])
 
 for start_num in range(1, 102, 10):
-    search = '펜트하우스'
-    URL = f'https://search.naver.com/search.naver?where=news&sm=tab_pge&query={search}&sort=0&photo=0&field=0&pd=0&ds=&de=&cluster_rank=65&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:r,p:all,a:all&start={start_num}'
+    search = 'coding'
+    URL = 'https://search.naver.com/search.naver?where=news&sm=tab_pge&query='+search+'&sort=0&photo=0&field=0&pd=0&ds=&de=&cluster_rank=65&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:r,p:all,a:all&start='+str(start_num)
     response = requests.get(URL)
     soup = BeautifulSoup(response.text, 'html.parser')
 
